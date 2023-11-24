@@ -8,7 +8,7 @@ import java.util.List;
 class App {
     public static boolean scrabble(String letters, String word) {
         
-        var symbols = new ArrayList<>(List.of(letters.toLowerCase().split("")));
+        List<String> symbols = new ArrayList<String>(Arrays.asList(letters.toLowerCase().split("")));
         var wordsSymbols = List.of(word.toLowerCase().split(""));
 
         for (var i = 0; i < wordsSymbols.size(); i++) {
