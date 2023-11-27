@@ -32,7 +32,7 @@ class App {
         }
 
         result += "\n}";
-        
+
         return result;
     }
 }
