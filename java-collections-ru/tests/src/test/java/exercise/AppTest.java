@@ -13,7 +13,7 @@ class AppTest {
         // BEGIN
         List<Integer> data = new ArrayList<>(Arrays.asList(1, 2, 3));
         List<Integer> expected = new ArrayList<>(Arrays.asList(1, 2));
-        
+
         var result = App.take(data, 2);
 
         assertThat(result).isEqualTo(expected);
