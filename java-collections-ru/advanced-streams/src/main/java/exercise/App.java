@@ -1,25 +1,23 @@
 package exercise;
 
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 import java.util.Arrays;
 
 // BEGIN
 public class App {
     public static String getForwardedVariables(String configText) {
-        var configParsed = Arrays.asList(configText.split("\\r?\\n"));
-        String result;
+        
+        String[] configParsed = configText.split("\\r?\\n");
 
-        Stream.of(configParsed)
-            .flatMap(line -> Stream.of(line))
-            .toList();
-
-        for (var line : configParsed) {
-
-            System.out.println(line);
-        }
-
-        return configText;
+        return Arrays.stream(configParsed)
+            .filter(line -> line.startsWith("environment="))
+            .map(line -> line.replaceAll("environment=", ""))
+            .map(line -> line.replaceAll("\"", ""))
+            .map(line -> line.split(","))
+            .flatMap(Arrays::stream)
+            .filter(kv -> kv.startsWith("X_FORWARDED_"))
+            .map(kv -> kv.replaceFirst("X_FORWARDED_", ""))
+            .collect(Collectors.joining(","));
     }
 }
 //END

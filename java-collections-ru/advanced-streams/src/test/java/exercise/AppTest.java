@@ -36,10 +36,10 @@ class AppTest {
 
         String result1 = App.getForwardedVariables(data1);
         String expected1 = "variable=value";
-        assertThat(result1).isEqualTo(result1);
+        assertThat(result1).isEqualTo(expected1);
 
         String result2 = App.getForwardedVariables(data2);
         String expected2 = "var1=111,var2=123,var3=value,mail=tirion@google.com,HOME=/home/tirion";
-        assertThat(result2).isEqualTo(result2);
+        assertThat(result2).isEqualTo(expected2);
     }
 }
