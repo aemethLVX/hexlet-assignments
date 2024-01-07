@@ -6,7 +6,7 @@ import java.util.Arrays;
 // BEGIN
 public class App {
     public static String getForwardedVariables(String configText) {
-        
+
         String[] configParsed = configText.split("\\r?\\n");
 
         return Arrays.stream(configParsed)
