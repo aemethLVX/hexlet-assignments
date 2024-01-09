@@ -7,7 +7,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 class AppTest {
-    /*
     @Test
     void testGenDiff1() {
         Map<String, Object> data1 = new HashMap<>();
@@ -85,5 +84,4 @@ class AppTest {
 
         assertThat(App.genDiff(data1, data2)).isEqualTo(expected);
     }
-    */
 }
