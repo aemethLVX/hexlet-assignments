@@ -18,17 +18,11 @@ public final class App {
 
         // BEGIN
         app.get("/users", ctx -> {
-            ctx.queryParamAsClass("page", Integer.class).getOrDefault(1);
+            var page = ctx.queryParamAsClass("page", Integer.class).getOrDefault(1);
             var perPage = ctx.queryParamAsClass("per", Integer.class).getOrDefault(5);
-            var pages = USERS.size() / perPage;
+            var offset = (page - 1) * perPage;
 
-            List<Map<String, String>> users = new ArrayList<>();
-
-            for (var i = 0; i < perPage; ++i) {
-                users.add(USERS.get(i));
-            }
-
-            ctx.json(users);
+            ctx.json(USERS.subList(offset, offset + perPage));
         });
         // END
 

@@ -51,7 +51,7 @@ class AppTest {
         assertThat(response.getStatus()).isEqualTo(200);
         assertThat(actual).isEqualTo(expected);
     }
-    /*
+
     @Test
     void testUsers1() throws Exception {
         ObjectMapper mapper = new ObjectMapper();
@@ -85,5 +85,4 @@ class AppTest {
         assertThat(response.getStatus()).isEqualTo(200);
         assertThat(actual).isEqualTo(expected);
     }
-    */
 }
