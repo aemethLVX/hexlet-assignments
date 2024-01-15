@@ -28,8 +28,10 @@ public class Application {
 
     // BEGIN
     @GetMapping("/posts")
-    public List<Post> index(@RequestParam(defaultValue = "10") Integer limit) {
-        return posts.stream().limit(limit).toList();
+    public List<Post> index(
+        @RequestParam(defaultValue = "1") Integer page,
+        @RequestParam(defaultValue = "10") Integer limit) {
+        return posts.stream().skip((page - 1) * limit).limit(limit).toList();
     }
 
     @PostMapping("/posts")
@@ -57,11 +59,11 @@ public class Application {
             page.setBody(data.getBody());
         }
         return data;
-    }    
+    }
 
     @DeleteMapping("/posts/{id}")
     public void destroy(@PathVariable String id) {
         posts.removeIf(p -> p.getId().equals(id));
-    }    
+    }
     // END
 }
