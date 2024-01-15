@@ -33,8 +33,11 @@ public class Application {
     public ResponseEntity<List<Post>> index(
         @RequestParam(defaultValue = "1") Integer page,
         @RequestParam(defaultValue = "10") Integer limit) {
+
         var result = posts.stream().skip((page - 1) * limit).limit(limit).toList();
-        return ResponseEntity.ok()
+
+        return ResponseEntity
+                .ok()
                 .header("X-Total-Count", String.valueOf(posts.size()))
                 .body(result);
     }
@@ -42,34 +45,35 @@ public class Application {
     @PostMapping("/posts")
     public ResponseEntity<Post> create(@RequestBody Post post) {
         posts.add(post);
-        return ResponseEntity.status(201)
-                .body(post);
+        URI location = URI.create("/posts");
+
+        return ResponseEntity.created(location).body(post);
     }
 
     @GetMapping("/posts/{id}")
     public ResponseEntity<Post> show(@PathVariable String id) {
-        try {
-            var post = posts.stream()
+        var post = posts.stream()
             .filter(p -> p.getId().equals(id))
             .findFirst();
-
-            return ResponseEntity.of(post);
-        } catch (Exception e){
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
+        return ResponseEntity.of(post);
     }
 
     @PutMapping("/posts/{id}")
-    public Post update(@PathVariable String id, @RequestBody Post data) {
+    public ResponseEntity<Post> update(@PathVariable String id, @RequestBody Post data) {
         var maybePage = posts.stream()
             .filter(p -> p.getId().equals(id))
             .findFirst();
+
+        var status = HttpStatus.NO_CONTENT;
+        
         if (maybePage.isPresent()) {
             var page = maybePage.get();
             page.setTitle(data.getTitle());
             page.setBody(data.getBody());
+            status = HttpStatus.OK;
         }
-        return data;
+        
+        return ResponseEntity.status(status).body(data);
     }
     // END
 

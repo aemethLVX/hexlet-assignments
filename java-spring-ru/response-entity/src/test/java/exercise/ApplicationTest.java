@@ -37,14 +37,12 @@ class ApplicationTest {
         TestUtil.createTestPost(mockMvc, testPost);
     }
 
-    /*
     @Test
     public void testIndex() throws Exception {
         mockMvc.perform(get("/posts"))
                 .andExpect(status().isOk())
                 .andExpect(header().string("X-Total-Count", "32"));
     }
-    */
 
     @Test
     public void testCreatePost() throws Exception {
@@ -88,7 +86,6 @@ class ApplicationTest {
                 .andExpect(content().json(om.writeValueAsString(post)));
     }
 
-    /*
     @Test
     public void testUpdateUnknownPost() throws Exception {
         var post = new Post("unknown-post", "new title", "new body");
@@ -100,7 +97,6 @@ class ApplicationTest {
         mockMvc.perform(request)
                 .andExpect(status().isNoContent());
     }
-    */
 
     @Test
     public void testDelete() throws Exception {
