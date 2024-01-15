@@ -65,14 +65,14 @@ public class Application {
             .findFirst();
 
         var status = HttpStatus.NO_CONTENT;
-        
+
         if (maybePage.isPresent()) {
             var page = maybePage.get();
             page.setTitle(data.getTitle());
             page.setBody(data.getBody());
             status = HttpStatus.OK;
         }
-        
+
         return ResponseEntity.status(status).body(data);
     }
     // END
