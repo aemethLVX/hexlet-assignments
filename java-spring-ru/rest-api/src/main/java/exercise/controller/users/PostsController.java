@@ -21,24 +21,19 @@ import exercise.Data;
 public class PostsController {
     private List<Post> posts = Data.getPosts();
 
-    @GetMapping("/users/{id}/posts")
-    public ResponseEntity<List<Post>> show(@PathVariable int id) {
-        var userPosts = posts.stream()
-            .filter(p -> p.getUserId() == id)
+    @GetMapping("/users/{userId}/posts")
+    public List<Post> show(@PathVariable int userId) {
+        return posts.stream()
+            .filter(p -> p.getUserId() == userId)
             .toList();
-        
-            return ResponseEntity
-            .ok()
-            .body(userPosts);
     }
 
-    @PostMapping("/users/{id}/posts")
-    public ResponseEntity<Post> create(@PathVariable int id, @RequestBody Post post) {
-        post.setUserId(id);
+    @ResponseStatus(HttpStatus.CREATED)
+    @PostMapping("/users/{userId}/posts")
+    public Post create(@PathVariable Integer userId, @RequestBody Post post) {
+        post.setUserId(userId);
         posts.add(post);
-        URI location = URI.create("/users/{id}/posts");
-
-        return ResponseEntity.created(location).body(post);
+        return post;
     }
 }
 // END

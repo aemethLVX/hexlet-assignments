@@ -27,43 +27,43 @@ class ApplicationTest {
     @Autowired
     private ObjectMapper om;
 
-//     @Test
-//     public void testPosts() throws Exception {
-//         var post1 = new Post();
-//         post1.setSlug("another-post");
-//         post1.setTitle("another post");
-//         post1.setBody("body");
+    @Test
+    public void testPosts() throws Exception {
+        var post1 = new Post();
+        post1.setSlug("another-post");
+        post1.setTitle("another post");
+        post1.setBody("body");
 
-//         var request1 = post("/api/users/999/posts")
-//                 .contentType(MediaType.APPLICATION_JSON)
-//                 .content(om.writeValueAsString(post1));
+        var request1 = post("/api/users/999/posts")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(om.writeValueAsString(post1));
 
-//         post1.setUserId(999);
+        post1.setUserId(999);
 
-//         mockMvc.perform(request1)
-//                 .andExpect(status().isCreated())
-//                 .andExpect(content().json(om.writeValueAsString(post1)));
+        mockMvc.perform(request1)
+                .andExpect(status().isCreated())
+                .andExpect(content().json(om.writeValueAsString(post1)));
 
-//         var post2 = new Post();
-//         post2.setSlug("another2-post");
-//         post2.setTitle("another2 post");
-//         post2.setBody("body2");
+        var post2 = new Post();
+        post2.setSlug("another2-post");
+        post2.setTitle("another2 post");
+        post2.setBody("body2");
 
-//         var request2 = post("/api/users/999/posts")
-//                 .contentType(MediaType.APPLICATION_JSON)
-//                 .content(om.writeValueAsString(post2));
+        var request2 = post("/api/users/999/posts")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(om.writeValueAsString(post2));
 
-//         post2.setUserId(999);
+        post2.setUserId(999);
 
-//         mockMvc.perform(request2)
-//                 .andExpect(status().isCreated())
-//                 .andExpect(content().json(om.writeValueAsString(post2)));
+        mockMvc.perform(request2)
+                .andExpect(status().isCreated())
+                .andExpect(content().json(om.writeValueAsString(post2)));
 
-//         var posts = new ArrayList<>();
-//         posts.add(post1);
-//         posts.add(post2);
-//         mockMvc.perform(get("/api/users/999/posts"))
-//                 .andExpect(status().isOk())
-//                 .andExpect(content().json(om.writeValueAsString(posts)));
-//     }
+        var posts = new ArrayList<>();
+        posts.add(post1);
+        posts.add(post2);
+        mockMvc.perform(get("/api/users/999/posts"))
+                .andExpect(status().isOk())
+                .andExpect(content().json(om.writeValueAsString(posts)));
+    }
 }
