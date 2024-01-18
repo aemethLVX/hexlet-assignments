@@ -33,7 +33,7 @@ public class Application {
         .map(u -> u.getName())
         .sorted()
         .toList();
-    }    
+    }
     // END
 
     @GetMapping("/users")
