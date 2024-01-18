@@ -15,7 +15,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 @SpringBootTest
 @AutoConfigureMockMvc
 class ApplicationTest {
-/*
+
     @Autowired
     private MockMvc mockMvc;
 
@@ -46,5 +46,4 @@ class ApplicationTest {
                 .andExpect(status().isOk())
                 .andExpect(content().json(om.writeValueAsString(expected)));
     }
-    */
 }
