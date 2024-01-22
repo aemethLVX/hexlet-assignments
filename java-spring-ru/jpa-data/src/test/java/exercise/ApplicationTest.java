@@ -44,7 +44,7 @@ class ApplicationTest {
         testPerson = new Person();
         personRepository.save(testPerson);
     }
-    /*
+
     @Test
     public void testWelcomePage() throws Exception {
         mockMvc.perform(get("/"))
@@ -94,5 +94,4 @@ class ApplicationTest {
 
         assertThat(personRepository.findAll()).isEmpty();
     }
-    */
 }
