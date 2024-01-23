@@ -44,7 +44,7 @@ class ApplicationTest {
         productRepository.save(testProduct);
     }
 
-/*    @Test
+    @Test
     public void testWelcomePage() throws Exception {
         mockMvc.perform(get("/"))
                 .andExpect(status().isOk());
@@ -137,5 +137,5 @@ class ApplicationTest {
                 .andExpect(status().isOk());
 
         assertThat(productRepository.findAll()).isEmpty();
-    }*/
+    }
 }
