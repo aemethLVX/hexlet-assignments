@@ -26,7 +26,7 @@ import exercise.model.Product;
 @AutoConfigureMockMvc
 @Transactional
 class ApplicationTest {
-/*
+
     @Autowired
     private MockMvc mockMvc;
 
@@ -171,5 +171,5 @@ class ApplicationTest {
                 .andExpect(status().isOk());
 
         assertThat(productRepository.findAll()).isEmpty();
-    }*/
+    }
 }
