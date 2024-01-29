@@ -44,7 +44,7 @@ class ApplicationTest {
         taskRepository.save(testTask);
     }
 
-/*    @Test
+    @Test
     public void testWelcomePage() throws Exception {
         mockMvc.perform(get("/"))
                 .andExpect(status().isOk());
@@ -136,5 +136,5 @@ class ApplicationTest {
                 .andExpect(status().isOk());
 
         assertThat(taskRepository.findAll()).isEmpty();
-    }*/
+    }
 }
