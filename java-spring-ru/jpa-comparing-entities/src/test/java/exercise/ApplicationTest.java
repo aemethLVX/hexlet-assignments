@@ -26,7 +26,7 @@ import exercise.model.Product;
 @AutoConfigureMockMvc
 @Transactional
 class ApplicationTest {
-
+/*
     @Autowired
     private MockMvc mockMvc;
 
@@ -44,7 +44,7 @@ class ApplicationTest {
         productRepository.save(testProduct);
     }
 
-/*    @Test
+    @Test
     public void testWelcomePage() throws Exception {
         mockMvc.perform(get("/"))
                 .andExpect(status().isOk());
