@@ -31,7 +31,7 @@ class ApplicationTest {
 
     @Autowired
     private ProductRepository productRepository;
-/*
+
     @Test
     public void testWelcomePage() throws Exception {
         mockMvc.perform(get("/"))
@@ -103,5 +103,5 @@ class ApplicationTest {
         List<Product> products = om.readValue(body, new TypeReference<List<Product>>() { });
 
         assertThat(products).hasSize(20);
-    }*/
+    }
 }

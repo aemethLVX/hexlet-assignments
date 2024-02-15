@@ -22,12 +22,13 @@ public class ProductsController {
     private ProductRepository productRepository;
 
     // BEGIN
-    @GetMapping(path = "/products")
-    public Boolean index(
-            @PathVariable int min,
-            @PathVariable int max
+    @GetMapping(path = "")
+    public List<Product> index(
+            @RequestParam(defaultValue = Integer.MIN_VALUE + "") Integer min,
+            @RequestParam(defaultValue = Integer.MAX_VALUE + "") Integer max
     ) {
-        return true;
+        Sort sort = Sort.by(Sort.Order.asc("price"));
+        return productRepository.findByPriceBetween(min, max, sort);
     }
     // END
 
