@@ -40,7 +40,7 @@ public class CommentsController {
     @GetMapping(path = "/{id}")
     public Comment show(@PathVariable long id) {
 
-        var comment = commentRepository.findById(id)
+        var comment =  commentRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Comment with id " + id + " not found"));
 
         return comment;
@@ -48,7 +48,7 @@ public class CommentsController {
 
     @PutMapping("/{id}")
     public Comment update(@PathVariable long id, @RequestBody Comment data) {
-        var comment = commentRepository.findById(id)
+        var comment =  commentRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Comment with id " + id + " not found"));
 
         comment.setBody(data.getBody());

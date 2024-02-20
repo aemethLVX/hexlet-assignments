@@ -21,7 +21,7 @@ import exercise.exception.ResourceNotFoundException;
 
 // BEGIN
 @RestController
-@RequestMapping("/posts ")
+@RequestMapping("/posts")
 public class PostsController {
 
     @Autowired
@@ -44,7 +44,7 @@ public class PostsController {
     @GetMapping(path = "/{id}")
     public Post show(@PathVariable long id) {
 
-        var post = postRepository.findById(id)
+        var post =  postRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Post with id " + id + " not found"));
 
         return post;
@@ -52,7 +52,7 @@ public class PostsController {
 
     @PutMapping("/{id}")
     public Post update(@PathVariable long id, @RequestBody Post data) {
-        var post = postRepository.findById(id)
+        var post =  postRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Post with id " + id + " not found"));
 
         post.setTitle(data.getTitle());
@@ -68,6 +68,5 @@ public class PostsController {
         commentsRepository.deleteByPostId(id);
         postRepository.deleteById(id);
     }
-
 }
 // END
