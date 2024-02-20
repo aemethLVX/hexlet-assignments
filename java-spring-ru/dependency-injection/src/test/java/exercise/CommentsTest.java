@@ -69,7 +69,7 @@ class CommentsTest {
         commentRepository.save(testComment2);
     }
 
-    /*@Test
+    @Test
     public void testIndex() throws Exception {
 
         var result = mockMvc.perform(get("/comments"))
@@ -147,5 +147,5 @@ class CommentsTest {
                 .andExpect(status().isOk());
 
         assertThat(commentRepository.findAll()).isEmpty();
-    }*/
+    }
 }

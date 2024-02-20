@@ -46,7 +46,7 @@ class PostsTest {
         postRepository.save(testPost);
     }
 
-    /*@Test
+    @Test
     public void testIndex() throws Exception {
 
         var result = mockMvc.perform(get("/posts"))
@@ -128,5 +128,5 @@ class PostsTest {
                 .andExpect(status().isOk());
 
         assertThat(postRepository.findAll()).isEmpty();
-    }*/
+    }
 }
