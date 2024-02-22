@@ -29,12 +29,12 @@ class ApplicationTest {
     @Autowired
     private  ApplicationContext ctx;
 
-/*    @Test
+    @Test
     public void testWelcomePage() throws Exception {
         mockMvc.perform(get("/welcome"))
                 .andExpect(status().isOk())
                 .andExpect(content().string(containsString(getDaytime().getName())));
-    }*/
+    }
 
     private Daytime getDaytime() {
         int hour = LocalDateTime.now().getHour();
