@@ -42,7 +42,7 @@ class ApplicationTest {
     private TaskRepository taskRepository;
 
 
-   @Test
+    @Test
     public void testWelcomePage() throws Exception {
         var result = mockMvc.perform(get("/"))
                 .andExpect(status().isOk())
